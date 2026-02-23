@@ -36,7 +36,7 @@ function renderCheckout() {
     // Gerando Botão de Checkout via API Link Generation
     btnContainer.innerHTML = `
         <button id="pay-button" class="btn-primary" style="width: 100%; border-radius: 0; padding: 1.5rem; font-size: 1.2rem;">
-            Pagar com InfinitePay
+            Ir para Pagamento
         </button>
         <p id="pay-error" style="color: red; text-align: center; margin-top: 1rem; display: none;"></p>
     `;
@@ -91,7 +91,7 @@ function renderCheckout() {
             }
         } catch (error) {
             console.error("InfinitePay Error:", error);
-            btn.innerText = 'Pagar com InfinitePay';
+            btn.innerText = 'Ir para Pagamento';
             btn.disabled = false;
             errDisplay.innerText = "Falha ao gerar o checkout de pagamento. Tente novamente.";
             errDisplay.style.display = 'block';
