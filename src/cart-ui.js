@@ -46,6 +46,7 @@ function injectCartUI() {
     });
 
     renderCartDrawer();
+    updateCartBadge();
 }
 
 export function openCart() {
