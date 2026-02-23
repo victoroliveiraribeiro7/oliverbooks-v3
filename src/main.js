@@ -2,6 +2,7 @@ import './style.css'
 import { books } from './books.js'
 import './cart-ui.js'
 import './search-ui.js'
+import './mobile-menu.js'
 
 document.querySelector('#app').innerHTML = `
   <section class="hero-slider">
