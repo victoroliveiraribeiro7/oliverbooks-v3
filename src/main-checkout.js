@@ -48,7 +48,7 @@ function renderCheckout() {
     // Você vai precisar substituir "sua-tag-aqui" pela tag gerada no site deles futuramente!
     btnContainer.innerHTML = ''; // Clear old buttons
     const script = document.createElement('script');
-    script.src = "https://js.infinitepay.io/checkout?tag=sua-tag-infpay-aqui";
+    script.src = "https://js.infinitepay.io/checkout?tag=victoroliver77";
 
     // Configura os metadados exigidos pela InfinitePay no DATA do Script
     script.dataset.metadata = encodeURIComponent(JSON.stringify({
