@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Oliver Books</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Estilos específicos para a tela minimalista de checkout integrando InfinitePay */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #FDF9F3;
+            /* Creme Suave - Fundo do site */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem;
+            background: transparent;
+            text-align: center;
+            z-index: 10;
+        }
+
+        header .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2C3E2D;
+            /* Negro Profundo / Madeira */
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        #checkout-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 3rem;
+            border-radius: 0;
+            /* Design System: 0px radius */
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.05);
+            /* Sombra difusa premium, sem bordas pesadas */
+            margin-top: 6rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2C3E2D;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #cart-summary {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            /* Editorial sharp line */
+            padding-bottom: 2rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: #2C3E2D;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2C3E2D;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* O botão da InfinitePay será renderizado aqui pelo script, 
+         então garantimos que o container o mantenha centralizado e elegante */
+        #infinitepay-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .empty-cart-msg {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #7B8C7B;
+            /* Verde Oliva */
+        }
+
+        .empty-cart-msg a {
+            color: #2C3E2D;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo">OLIVER BOOKS</a>
+    </header>
+
+    <div id="checkout-container" class="fade-in">
+        <h1>Finalizar Compra</h1>
+        <div id="cart-summary">
+            <!-- Injetado via JS -->
+        </div>
+        <div id="infinitepay-btn-container">
+            <!-- Script da InfinitePay será injetado aqui dinamicamente -->
+        </div>
+    </div>
+
+    <script type="module" src="/src/main-checkout.js"></script>
+</body>
+
+</html>
