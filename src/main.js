@@ -10,17 +10,17 @@ document.querySelector('#app').innerHTML = `
     <div class="slider-container" id="main-slider">
       <!-- Slide 1 -->
       <div class="slide active">
-        <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="slide-bg" style="background-image: url('/oliver_slide_1.png');"></div>
 
       </div>
       <!-- Slide 2 -->
       <div class="slide">
-        <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="slide-bg" style="background-image: url('/oliver_slide_2.png');"></div>
 
       </div>
       <!-- Slide 3 -->
       <div class="slide">
-        <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="slide-bg" style="background-image: url('/oliver_slide_3.png');"></div>
 
       </div>
     </div>
