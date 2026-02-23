@@ -90,7 +90,11 @@ function renderCartDrawer() {
                     <h4>${item.title}</h4>
                     <span class="cart-item-price">R$ ${(item.priceNum * item.quantity).toFixed(2).replace('.', ',')}</span>
                     <div class="cart-item-actions">
-                        <span class="cart-item-qtd">Qtd: ${item.quantity}</span>
+                        <div class="cart-qtd-control">
+                            <button class="cart-qtd-btn minus" data-id="${item.id}" data-qtd="${item.quantity - 1}">-</button>
+                            <span class="cart-item-qtd">${item.quantity}</span>
+                            <button class="cart-qtd-btn plus" data-id="${item.id}" data-qtd="${item.quantity + 1}">+</button>
+                        </div>
                         <button class="cart-item-remove" data-id="${item.id}">Remover</button>
                     </div>
                 </div>
@@ -106,6 +110,15 @@ function renderCartDrawer() {
         btn.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
             removeFromCart(id);
+        });
+    });
+
+    // Adiciona listener nos controles de - e +
+    document.querySelectorAll('.cart-qtd-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const id = e.target.getAttribute('data-id');
+            const newQtd = parseInt(e.target.getAttribute('data-qtd'));
+            updateQuantity(id, newQtd);
         });
     });
 }
