@@ -3,6 +3,7 @@ import { books } from './books.js'
 import './cart-ui.js'
 import './search-ui.js'
 import './mobile-menu.js'
+import './quick-add.js'
 
 const bibliasCategory = books.filter(book => book.category === 'Bíblia');
 
@@ -22,7 +23,10 @@ document.querySelector('#app').innerHTML = `
             <div class="book-info">
               <span class="book-author">${book.author}</span>
               <h3>${book.title}</h3>
-              <span class="book-price">${book.price}</span>
+              <div class="book-price-row">
+                <span class="book-price">${book.price}</span>
+                <button class="quick-add-btn" data-id="${book.id}" title="Adicionar à Sacola">+</button>
+              </div>
             </div>
           </a>
         </div>

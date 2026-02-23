@@ -632,11 +632,45 @@ header {
   display: block;
 }
 
+.book-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
 .book-price {
   font-family: 'Inter', sans-serif;
   color: var(--text-dark);
   font-weight: 400;
   font-size: 1.1rem;
+}
+
+.quick-add-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-dark);
+  border-radius: 50%;
+  /* Um botão redondo simples é super elegante aqui */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  /* Fica acima do a href do block todo */
+  position: relative;
+}
+
+.quick-add-btn:hover {
+  background: var(--text-dark);
+  color: var(--white);
+  border-color: var(--text-dark);
+  transform: scale(1.1);
 }
 
 /* Newsletter */
