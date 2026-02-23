@@ -64,7 +64,14 @@ function renderCheckout() {
         };
 
         try {
-            const response = await fetch('https://api.infinitepay.io/invoices/public/checkout/links', {
+            // Em dev local, lidamos com CORS usando o vite.config.js proxy.
+            // Em produção (VPS Hostinger/cPanel), lidamos com CORS usando um proxy.php transparente que criamos em `public/api/checkout.php`.
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const fetchUrl = isLocal
+                ? '/api/infinitepay/invoices/public/checkout/links'
+                : '/api/checkout.php';
+
+            const response = await fetch(fetchUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
