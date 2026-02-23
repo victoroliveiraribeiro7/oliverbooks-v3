@@ -1,6 +1,7 @@
 import './style.css'
 import { books } from './books.js'
 import './cart-ui.js'
+import './search-ui.js'
 
 document.querySelector('#app').innerHTML = `
   <section class="hero-slider">

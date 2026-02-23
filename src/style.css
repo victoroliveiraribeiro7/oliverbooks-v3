@@ -1031,3 +1031,101 @@ footer {
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
+
+/* --- SEARCH LIVE DROPDOWN --- */
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 300px;
+  /* Para garantir que as capas caibam */
+  max-height: 400px;
+  overflow-y: auto;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.search-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.search-result-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: background 0.2s;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: var(--bg-light);
+}
+
+.search-result-img {
+  width: 40px;
+  height: 60px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  flex-shrink: 0;
+}
+
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.search-result-info h4 {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  margin: 0 0 0.2rem 0;
+  color: var(--text-dark);
+}
+
+.search-result-info span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.2rem;
+  font-family: var(--font-secondary);
+}
+
+.search-result-info strong {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  margin-top: auto;
+}
+
+.search-no-results {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.search-more-results {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  background: var(--bg-light);
+  letter-spacing: 1px;
+}

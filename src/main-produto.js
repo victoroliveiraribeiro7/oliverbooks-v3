@@ -2,6 +2,7 @@ import './style.css'
 import { books } from './books.js'
 import { addToCart } from './cart.js'
 import './cart-ui.js'
+import './search-ui.js'
 // Simple client-side routing based on URL search params
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
