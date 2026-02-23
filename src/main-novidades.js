@@ -1,5 +1,6 @@
 import './style.css'
 import { books } from './books.js'
+import './cart-ui.js'
 
 const novidadesCategory = books.filter(book => book.isNew === true);
 

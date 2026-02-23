@@ -1,5 +1,6 @@
 import './style.css'
 import { books } from './books.js'
+import './cart-ui.js'
 
 const livrosCategory = books.filter(book => book.category === 'Livro');
 

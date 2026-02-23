@@ -1,7 +1,7 @@
 import './style.css'
 import { books } from './books.js'
 import { addToCart } from './cart.js'
-
+import './cart-ui.js'
 // Simple client-side routing based on URL search params
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
@@ -60,7 +60,7 @@ if (!book) {
     // Lógica do Carrinho
     document.querySelector('.buy-button').addEventListener('click', () => {
         addToCart(book);
-        window.location.href = '/checkout/'; // Redireciona logo direto pra tela de pagamento!
+        window.dispatchEvent(new CustomEvent('openCart'));
     });
 
     // Attach function to window so the onclick handler works
