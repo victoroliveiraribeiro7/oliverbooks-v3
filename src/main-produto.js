@@ -57,8 +57,6 @@ if (!book) {
 
     document.querySelector('#app').innerHTML = productHtml;
 
-    document.querySelector('#app').innerHTML = productHtml;
-
     // Lógica do Carrinho
     document.querySelector('.buy-button').addEventListener('click', () => {
         addToCart(book);
