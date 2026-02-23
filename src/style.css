@@ -111,6 +111,8 @@ header {
   position: absolute;
   right: 1rem;
   color: var(--text-light);
+  display: flex;
+  align-items: center;
 }
 
 .top-actions {
