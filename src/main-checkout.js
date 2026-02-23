@@ -1,5 +1,5 @@
 import './style.css'
-import { getCart, removeFromCart, updateQuantity, getCartTotal, getCartTotalCents, clearCart } from './cart.js'
+import { getCart, getCartTotal, getCartTotalCents, clearCart } from './cart.js'
 
 function renderCheckout() {
     const summaryContainer = document.getElementById('cart-summary');
@@ -33,39 +33,65 @@ function renderCheckout() {
 
     summaryContainer.innerHTML = html;
 
-    // Gerando Script do InfinitePay Checkout Embed
-    // A documentação pede para injetar esse script no local desejado
-    const totalCents = getCartTotalCents();
-    // Preparando os Itens do Carrinho para o formato que a InfinitePay entende
-    const itemsJson = JSON.stringify(cart.map(i => ({
-        "id": i.id,
-        "description": i.title,
-        "amount": Math.round(i.priceNum * 100),
-        "quantity": i.quantity
-    })));
+    // Gerando Botão de Checkout via API Link Generation
+    btnContainer.innerHTML = `
+        <button id="pay-button" class="btn-primary" style="width: 100%; border-radius: 0; padding: 1.5rem; font-size: 1.2rem;">
+            Pagar com InfinitePay
+        </button>
+        <p id="pay-error" style="color: red; text-align: center; margin-top: 1rem; display: none;"></p>
+    `;
 
-    // NOTA: Como você não nos passou a SUA TAG DA INFINITEPAY no prompt, usaremos um placeholder.
-    // Você vai precisar substituir "sua-tag-aqui" pela tag gerada no site deles futuramente!
-    btnContainer.innerHTML = ''; // Clear old buttons
-    const script = document.createElement('script');
-    script.src = "https://js.infinitepay.io/checkout?tag=victoroliver77";
+    document.getElementById('pay-button').addEventListener('click', async (e) => {
+        const btn = e.target;
+        const errDisplay = document.getElementById('pay-error');
+        btn.innerText = 'Processando...';
+        btn.disabled = true;
+        errDisplay.style.display = 'none';
 
-    // Configura os metadados exigidos pela InfinitePay no DATA do Script
-    script.dataset.metadata = encodeURIComponent(JSON.stringify({
-        "metadata": {
-            "origin": "site_oliverbooks",
-            "cart": itemsJson
+        // Prepara os Itens do Carrinho para a API
+        const items = cart.map(i => ({
+            "description": i.title,
+            "price": Math.round(i.priceNum * 100), // Preço unitário em centavos
+            "quantity": i.quantity
+        }));
+
+        const payload = {
+            "handle": "victoroliver77",
+            "items": items,
+            "order_nsu": "ORDER-" + new Date().getTime(),
+            "redirect_url": window.location.origin + "/sucesso"
+            // "webhook_url": window.location.origin + "/api/webhook" // Configuração futura para VPS
+        };
+
+        try {
+            const response = await fetch('https://api.infinitepay.io/invoices/public/checkout/links', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+
+            if (data && data.url) {
+                // Sucesso: Redireciona o cliente para o Checkout Seguro da InfinitePay
+                window.location.href = data.url;
+            } else if (data.message) {
+                throw new Error(data.message);
+            } else {
+                throw new Error("Erro desconhecido ao gerar link.");
+            }
+        } catch (error) {
+            console.error("InfinitePay Error:", error);
+            btn.innerText = 'Pagar com InfinitePay';
+            btn.disabled = false;
+            errDisplay.innerText = "Falha ao gerar o checkout de pagamento. Tente novamente.";
+            errDisplay.style.display = 'block';
         }
-    }));
-    // O valor na InfinitePay é sempre passado como data attr ou dentro das métricas. 
-    // Como a documentação é um snnipet de copypaste do Dashboard deles que precisa de "tag" e "amount", a implementação Embed JS básica deles é:
-    script.dataset.amount = totalCents;
-    script.dataset.type = "payment";
-
-    btnContainer.appendChild(script);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', renderCheckout);
 
-// Evento disparado caso o carrinho seja alterado na mesma janela
 window.addEventListener('cartUpdated', renderCheckout);
