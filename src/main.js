@@ -11,32 +11,17 @@ document.querySelector('#app').innerHTML = `
       <!-- Slide 1 -->
       <div class="slide active">
         <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="slide-content container">
-          <span class="hero-label">Novas Edições</span>
-          <h1>Obras que Transformam</h1>
-          <p>Explore as edições especiais com tradução NVI. O conforto de leitura que você merece.</p>
-          <a href="/biblias/" class="btn-primary">Ver Bíblias</a>
-        </div>
+
       </div>
       <!-- Slide 2 -->
       <div class="slide">
         <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="slide-content container">
-          <span class="hero-label">Curadoria Especial</span>
-          <h1>Alimento para Alma</h1>
-          <p>Descubra uma curadoria exclusiva de obras cristãs clássicas e contemporâneas.</p>
-          <a href="/livros/" class="btn-primary">Explorar Acervo</a>
-        </div>
+
       </div>
       <!-- Slide 3 -->
       <div class="slide">
         <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="slide-content container">
-          <span class="hero-label">Lançamentos 2026</span>
-          <h1>Acompanhe as Novidades</h1>
-          <p>As últimas adições ao nosso catálogo, trazendo sabedoria constante para sua jornada.</p>
-          <a href="/novidades/" class="btn-primary">Ver Novidades</a>
-        </div>
+
       </div>
     </div>
     
