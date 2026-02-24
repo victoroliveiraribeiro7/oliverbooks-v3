@@ -11,17 +11,32 @@ document.querySelector('#app').innerHTML = `
       <!-- Slide 1 -->
       <div class="slide active">
         <div class="slide-bg" style="background-image: url('/oliver_slide_1.png');"></div>
-
+        <div class="slide-content container">
+          <span class="hero-label">Essencial & Clássico</span>
+          <h1>Cultive as raízes da sabedoria.</h1>
+          <p>Encontre os maiores clássicos devocionais e aprofunde o seu conhecimento em uma leitura rica, sem distrações.</p>
+          <a href="/livros/" class="btn-primary">Explorar Obras</a>
+        </div>
       </div>
       <!-- Slide 2 -->
       <div class="slide">
         <div class="slide-bg" style="background-image: url('/oliver_slide_2.png');"></div>
-
+        <div class="slide-content container">
+          <span class="hero-label">Curadoria Teológica</span>
+          <h1>Alimento Sólido para sua Mente.</h1>
+          <p>Obras selecionadas cautelosamente com foco em erudição, história cristã e teologia de ponta a ponta.</p>
+          <a href="/livros/" class="btn-primary">Nossos Recomenados</a>
+        </div>
       </div>
       <!-- Slide 3 -->
       <div class="slide">
         <div class="slide-bg" style="background-image: url('/oliver_slide_3.png');"></div>
-
+        <div class="slide-content container">
+          <span class="hero-label">Edições Premium</span>
+          <h1>O Livro dos Livros.</h1>
+          <p>Bíblias de estudo luxuosas em material durável, para acompanhar uma vida inteira de meditações.</p>
+          <a href="/biblias/" class="btn-primary">Ver Bíblias</a>
+        </div>
       </div>
     </div>
     
