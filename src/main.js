@@ -10,7 +10,7 @@ document.querySelector('#app').innerHTML = `
     <div class="slider-container" id="main-slider">
       <!-- Slide 1 -->
       <div class="slide active">
-        <div class="slide-bg" style="background-image: url('/oliver_slide_1.png');"></div>
+        <div class="slide-bg" style="background-image: url('/slide_custom_1_widescreen.jpg');"></div>
         <div class="slide-content container">
           <span class="hero-label">Essencial & Clássico</span>
           <h1>Cultive as raízes da sabedoria.</h1>
@@ -20,7 +20,7 @@ document.querySelector('#app').innerHTML = `
       </div>
       <!-- Slide 2 -->
       <div class="slide">
-        <div class="slide-bg" style="background-image: url('/oliver_slide_2.png');"></div>
+        <div class="slide-bg" style="background-image: url('/slide_custom_2_widescreen.jpg');"></div>
         <div class="slide-content container">
           <span class="hero-label">Curadoria Teológica</span>
           <h1>Alimento Sólido para sua Mente.</h1>
