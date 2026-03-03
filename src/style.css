@@ -950,12 +950,12 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
   z-index: 9998;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cart-overlay.open {
@@ -1013,48 +1013,78 @@ footer {
   padding: 2rem;
 }
 
-.cart-empty-msg {
+.cart-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-align: center;
+  padding: 2rem;
   color: var(--text-light);
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-top: 2rem;
+}
+
+.cart-empty-state svg {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
+  opacity: 0.3;
+}
+
+.cart-empty-state p {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.cart-empty-state span {
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 .cart-item {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding-bottom: 1.5rem;
 }
 
 .cart-item-img {
-  width: 80px;
-  height: 120px;
+  width: 70px;
+  height: 100px;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--bg-light);
 }
 
 .cart-item-img img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   mix-blend-mode: multiply;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
 }
 
-.cart-item-info {
+.cart-item-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.cart-item-info h4 {
+.cart-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cart-item-header h4 {
   font-family: var(--font-primary);
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.3;
   color: var(--text-dark);
 }
 

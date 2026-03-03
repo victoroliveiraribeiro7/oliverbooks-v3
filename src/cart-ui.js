@@ -70,7 +70,19 @@ function renderCartDrawer() {
     const cart = getCart();
 
     if (cart.length === 0) {
-        list.innerHTML = '<p class="cart-empty-msg">Nenhum livro selecionado.</p>';
+        list.innerHTML = `
+            <div class="cart-empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square">
+                    <path d="M6 2L3 6v14h18V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    <line x1="12" y1="11" x2="12" y2="17"></line>
+                    <line x1="9" y1="14" x2="15" y2="14"></line>
+                </svg>
+                <p>Sua sacola está vazia.</p>
+                <span>Descubra novas leituras em nosso acervo.</span>
+            </div>
+        `;
         totalPriceEl.innerText = 'R$ 0,00';
         checkoutBtn.style.pointerEvents = 'none';
         checkoutBtn.style.opacity = '0.5';
@@ -87,9 +99,11 @@ function renderCartDrawer() {
                 <div class="cart-item-img">
                     <img src="${item.image}" alt="${item.title}">
                 </div>
-                <div class="cart-item-info">
-                    <h4>${item.title}</h4>
-                    <span class="cart-item-price">R$ ${(item.priceNum * item.quantity).toFixed(2).replace('.', ',')}</span>
+                <div class="cart-item-content">
+                    <div class="cart-item-header">
+                        <h4>${item.title}</h4>
+                        <span class="cart-item-price">R$ ${(item.priceNum * item.quantity).toFixed(2).replace('.', ',')}</span>
+                    </div>
                     <div class="cart-item-actions">
                         <div class="cart-qtd-control">
                             <button class="cart-qtd-btn minus" data-id="${item.id}" data-qtd="${item.quantity - 1}">-</button>

@@ -26,31 +26,33 @@ if (!book) {
     `).join('');
 
     const productHtml = `
-        <section class="product-page container fade-in" style="padding-top: 200px; padding-bottom: 100px;">
+        <section class="product-page container" style="padding-top: 200px; padding-bottom: 100px;">
             <div class="product-layout">
                 <div class="product-gallery">
-                    <div class="main-image-container">
+                    <div class="main-image-container reveal-up">
                         <img id="main-product-image" src="${mainImage}" alt="${book.title}">
                     </div>
                     ${book.images.length > 1 ? `
-                        <div class="thumbnail-list">
+                        <div class="thumbnail-list reveal-up" style="transition-delay: 0.2s;">
                             ${thumbnailsHtml}
                         </div>
                     ` : ''}
                 </div>
                 
-                <div class="product-details">
-                    <span class="product-author">${book.author}</span>
-                    <h1 class="product-title">${book.title}</h1>
-                    <div class="product-price">${book.price}</div>
-                    
-                    <div class="product-actions">
-                        <button class="btn-primary buy-button">Adquirir Já</button>
-                    </div>
+                <div class="product-details reveal-up" style="transition-delay: 0.4s;">
+                    <div class="product-details-inner">
+                        <span class="product-author">${book.author}</span>
+                        <h1 class="product-title">${book.title}</h1>
+                        <div class="product-price">${book.price}</div>
+                        
+                        <div class="product-actions">
+                            <button class="btn-primary buy-button">Adquirir Já</button>
+                        </div>
 
-                    <div class="product-description">
-                        <h3>Síntese do Livro</h3>
-                        <p>${book.description || 'Descrição não disponível para este produto.'}</p>
+                        <div class="product-description">
+                            <h3>Síntese do Livro</h3>
+                            <p>${book.description || 'Descrição não disponível para este produto.'}</p>
+                        </div>
                     </div>
                 </div>
             </div>
