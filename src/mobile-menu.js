@@ -27,7 +27,8 @@ export function initMobileMenu() {
             overlay = document.createElement('div');
             overlay.className = 'mobile-menu-overlay';
             overlay.id = 'mobile-menu-overlay';
-            document.body.appendChild(overlay);
+            const headerObj = document.querySelector('header') || document.body;
+            headerObj.appendChild(overlay);
         }
 
         // Action de abrir/fechar o menu
